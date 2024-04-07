@@ -316,10 +316,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0}
+  movespeed: 1
+  attackspeed: 0.3
   speed: 1
   rb: {fileID: 0}
   sr: {fileID: 0}
   animator: {fileID: 0}
+  isMeleeAttack: 0
+  isDodging: 0
+  dodgeForce: 0.8
+  dodgeDuration: 0.5
+  dodgeTimer: 0
+  dodgeCooldown: 2
 --- !u!50 &1992972373
 Rigidbody2D:
   serializedVersion: 4
@@ -346,7 +354,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!61 &1992972374
 BoxCollider2D:
   m_ObjectHideFlags: 0

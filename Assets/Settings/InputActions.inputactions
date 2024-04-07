@@ -15,9 +15,18 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Fire",
+                    "name": "MeleeAttack",
                     "type": "Button",
-                    "id": "57fbc475-7548-44ea-9c5b-ab33af8cbb4e",
+                    "id": "bf93963c-092d-46a1-807c-5c8724b70d3e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Dodge",
+                    "type": "Button",
+                    "id": "1e82030a-8f4d-402d-bf79-29c1bfc0e320",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -214,23 +223,45 @@
                 },
                 {
                     "name": "",
-                    "id": "6b2ec5d7-8092-4afe-a069-14d2f5ee8d78",
-                    "path": "<Mouse>/leftButton",
+                    "id": "8dfc6ce0-da22-44b0-8765-4b8e5053905a",
+                    "path": "<Keyboard>/j",
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
-                    "action": "Fire",
+                    "action": "MeleeAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "f8bc2ca2-957e-4d04-a2a5-bdbca570b68b",
-                    "path": "<Gamepad>/buttonSouth",
+                    "id": "77eba20c-15ab-4a9c-8fcc-1c8448751c47",
+                    "path": "<XInputController>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Fire",
+                    "action": "MeleeAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2821e70f-4969-4b03-b730-79841662e133",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Dodge",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ffd3684d-b4c8-4f4f-9f97-699c6f033223",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dodge",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
