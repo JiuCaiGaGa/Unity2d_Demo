@@ -8,13 +8,15 @@ public class PlayerController : MonoBehaviour
     public Vector2 direction;
     public float speed;
     public Rigidbody2D rb;
-    public SpriteRenderer sr; 
+    public SpriteRenderer sr;
+    public Animator animator;
 
     private void Awake()
     {// 实例化 actions
         actions = new InputActions();
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();// 获取 Player 上的 SpriteRenderer 组件
+        animator = GetComponent<Animator>();
     }
     private void OnEnable()
     {
@@ -29,7 +31,8 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         direction = actions.Gameplay.Move.ReadValue<Vector2>();
-        Debug.Log(direction);
+        /**/Debug.Log(direction);
+        setAnimation();
     }
 
     private void FixedUpdate()
@@ -48,5 +51,10 @@ public class PlayerController : MonoBehaviour
         {
             sr.flipX=false;
         }
+    }
+
+    void setAnimation()
+    {
+        animator.SetFloat("Speed", rb.velocity.magnitude);// 向 rb 组件的速度向量大小赋值给 speed
     }
 }

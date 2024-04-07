@@ -224,11 +224,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1992972371}
+  - component: {fileID: 1992972375}
   - component: {fileID: 1992972373}
   - component: {fileID: 1992972374}
   - component: {fileID: 1992972370}
   - component: {fileID: 1992972372}
-  - component: {fileID: 1992972375}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -319,6 +319,7 @@ MonoBehaviour:
   speed: 1
   rb: {fileID: 0}
   sr: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!50 &1992972373
 Rigidbody2D:
   serializedVersion: 4
