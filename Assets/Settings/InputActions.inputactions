@@ -270,30 +270,8 @@
         {
             "name": "UI",
             "id": "c3f5c675-d6f1-4eab-a7d3-7a922b86479c",
-            "actions": [
-                {
-                    "name": "New action",
-                    "type": "Button",
-                    "id": "fcfb29c1-7275-4a56-9830-f2e5519d0807",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "661afbd6-07ce-488b-8c67-4afceb527ceb",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "New action",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
+            "actions": [],
+            "bindings": []
         }
     ],
     "controlSchemes": [

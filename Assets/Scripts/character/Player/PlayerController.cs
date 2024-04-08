@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
@@ -23,6 +24,8 @@ public class PlayerController : MonoBehaviour
     public float dodgeTimer = 0f;// 计时器
     public float dodgeCooldown = 2f;// 设置两秒的冷却
     private bool isDodgeCooldown = false;// 不在冷却
+
+    public bool isDead = false;// 没死
 
     private void Awake()
     {// 实例化 actions
@@ -89,7 +92,24 @@ public class PlayerController : MonoBehaviour
             animator.SetTrigger("meleeAttack");
             isMeleeAttack = true;
         }
-
+    }
+    /*
+        玩家受伤
+     */
+    public void PlayerHurt()
+    {
+        animator.SetTrigger("hurt");
+    }
+    /*
+        玩家阵亡
+     */
+    public void PlayerDead()
+    {
+        //animator.SetBool("isDead",true);
+        isDead = true;
+        // 禁用玩家输入
+        //actions.Gameplay.Disable();
+        SwitchActionMap(actions.UI);// 切换到ui动作表
     }
     /*
         闪避
@@ -134,9 +154,18 @@ public class PlayerController : MonoBehaviour
     }
     void setAnimation()
     {
-        animator.SetFloat("speed", rb.velocity.magnitude);// 向 rb 组件的速度向量大小赋值给 speed
-        animator.SetBool("isAttack", isMeleeAttack);
-        animator.SetBool("isDodge", isDodging);
+        animator.SetFloat("speed",rb.velocity.magnitude);// 向 rb 组件的速度向量大小赋值给 speed
+        animator.SetBool("isAttack",isMeleeAttack);
+        animator.SetBool("isDodge",isDodging);
+        animator.SetBool("isDead",isDead);
         //Debug.Log("isAttack :" +isMeleeAttack);
+    }
+    /*
+        切换动作表
+     */
+    void SwitchActionMap(InputActionMap actionMap)
+    {
+        actions.Disable();// 禁用所有的动作表
+        actionMap.Enable();
     }
 }

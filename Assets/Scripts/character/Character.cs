@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Character : MonoBehaviour
 {
@@ -14,7 +15,8 @@ public class Character : MonoBehaviour
     public float invulnerableDuration;// 无敌时间
     //public float invulnerableTimer;// 无敌计时器
 
-
+    public UnityEvent OnHurt; // 受伤事件
+    public UnityEvent OnDeath; // 死亡事件
     protected virtual void OnEnable()
     {
         curHP = maxHP;
@@ -24,16 +26,21 @@ public class Character : MonoBehaviour
     {
         if (invulnerable)return;// 处于无敌状态 
         curHP = curHP - damage>0?curHP-damage:0;
-        StartCoroutine(nameof(InvulnerableCoroutine));// 启动无敌协程
-        if(curHP == 0)
+        if (curHP > 0)
         {
+            StartCoroutine(nameof(InvulnerableCoroutine));// 启动无敌协程
+            // 执行 受伤函数
+            OnHurt?.Invoke();
+        }else 
+        { 
             Die();
         }
     }
 
     public virtual void Die()
     {
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
+        OnDeath?.Invoke();
     }
 
 
